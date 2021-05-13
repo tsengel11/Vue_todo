@@ -27,14 +27,14 @@
 import addItemForm from "./addItemForm"
 import ListView from './listView.vue'
 export default {
-    data: () => ({ drawer: null }),
     components:{
         addItemForm,
         ListView
     },
     data:function(){
         return{
-            items:[]
+            items:[],
+            drawer: null 
         }
     },
     methods:{

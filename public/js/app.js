@@ -1860,7 +1860,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  computed: {
+    colorClass: function colorClass() {
+      var color = this.item.name ? 'green' : 'red';
+      return 'color: ' + color;
+    }
+  },
   data: function data() {
     return {
       item: {
@@ -1904,10 +1912,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _addItemForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./addItemForm */ "./resources/js/vue/addItemForm.vue");
 /* harmony import */ var _listView_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./listView.vue */ "./resources/js/vue/listView.vue");
-var _data$components$data;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -1935,33 +1939,32 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_data$components$data = {
-  data: function data() {
-    return {
-      drawer: null
-    };
-  },
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     addItemForm: _addItemForm__WEBPACK_IMPORTED_MODULE_0__.default,
     ListView: _listView_vue__WEBPACK_IMPORTED_MODULE_1__.default
-  }
-}, _defineProperty(_data$components$data, "data", function data() {
-  return {
-    items: []
-  };
-}), _defineProperty(_data$components$data, "methods", {
-  getList: function getList() {
-    var _this = this;
+  },
+  data: function data() {
+    return {
+      items: [],
+      drawer: null
+    };
+  },
+  methods: {
+    getList: function getList() {
+      var _this = this;
 
-    axios.get('api/items').then(function (response) {
-      _this.items = response.data;
-    })["catch"](function (error) {
-      console.log(error);
-    });
+      axios.get('api/items').then(function (response) {
+        _this.items = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  },
+  created: function created() {
+    this.getList();
   }
-}), _defineProperty(_data$components$data, "created", function created() {
-  this.getList();
-}), _data$components$data);
+});
 
 /***/ }),
 
@@ -19942,19 +19945,15 @@ var render = function() {
               _c(
                 "v-icon",
                 {
-                  class: [
-                    _vm.item.name
-                      ? (_vm.color = "green darken-2")
-                      : "blue darken-3",
-                    "plus"
-                  ],
+                  class: _vm.colorClass,
+                  attrs: { large: "" },
                   on: {
                     click: function($event) {
                       return _vm.addItem()
                     }
                   }
                 },
-                [_vm._v("mdi-message-text")]
+                [_vm._v("mdi-message-text\n            ")]
               ),
               _vm._v(" "),
               _c(
