@@ -13,3 +13,10 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css').vue();
+
+    mix.options({
+        hmrOptions: {
+            host: 'localhost',  // mysite.test is my local domain used for testing
+            port: 8080,
+        }
+     });

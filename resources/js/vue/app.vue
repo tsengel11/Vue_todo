@@ -8,17 +8,21 @@
       Side Menu
     </v-navigation-drawer>
 
-    <v-app-bar app>
+    <v-app-bar app >
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-
-      <v-toolbar-title>Todo List Admin</v-toolbar-title>
+      <v-toolbar-title>Todo Admin Panels</v-toolbar-title>
     </v-app-bar>
 
     <v-main>
-      <h2 id="title">Todo List</h2>
-      <add-item-form/>
+      <h2 id="title">Todo Lists</h2>
+      <add-item-form
+      v-on:reloadlist = "getList()"
+      />
 
-      <list-view :items="items"/>
+      <list-view 
+      :items="items"
+      v-on:reloadlist = "getList()"
+      />
     </v-main>
   </v-app>
 </template>

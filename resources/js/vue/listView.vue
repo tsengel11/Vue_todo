@@ -1,9 +1,12 @@
 <template>
-    <div>
+    <div
+            class="list">
         <div v-for="(item,index) in items" :key="index">
 
         <list-item
             :item="item"
+            class="item"
+            v-on:itemchanged = "$emit('reloadlist')"
         />
         </div>
     </div>
@@ -16,3 +19,9 @@ export default {
     props:['items']
 }
 </script>
+
+<style scoped>
+    .list{
+        width: 300px;
+    }
+</style>

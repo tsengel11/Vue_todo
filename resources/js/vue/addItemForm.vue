@@ -5,7 +5,7 @@
                 <v-icon
                 @click="addItem()"
                 large
-                :class="colorClass">mdi-message-text
+                >mdi-message-text
                 </v-icon>
                 <v-col cols="4">
                     <v-text-field label="To do Item" v-model="item.name"></v-text-field>
@@ -18,10 +18,8 @@
 <script>
 export default {
     computed:{
-            colorClass() {
-                        let color = this.item.name ? 'green' : 'red';
-                        return 'color: '+color;
-            }
+          
+
         },
     data:function(){
         return {
@@ -39,7 +37,8 @@ export default {
                 item:this.item
             }).then(response=>{
                 if(response.status ==201){
-                    this.item.name =="";
+                    this.item.name ="";
+                    this.$emit('reloadlist')
                 }
             }).catch(error=>{
                     console.log(error);

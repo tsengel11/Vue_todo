@@ -1936,7 +1936,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -20067,12 +20066,12 @@ var render = function() {
             expression: "drawer"
           }
         },
-        [_vm._v("\n    Side Menu\n  ")]
+        [_vm._v("\n    Side menusnpm install webpack-livereload-plugin\n  ")]
       ),
       _vm._v(" "),
       _c(
         "v-app-bar",
-        { attrs: { app: "" } },
+        { attrs: { app: "", dark: "" } },
         [
           _c("v-app-bar-nav-icon", {
             on: {
@@ -20082,7 +20081,7 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("v-toolbar-title", [_vm._v("Todo List Admin")])
+          _c("v-toolbar-title", [_vm._v("Todo Lisat Admin")])
         ],
         1
       ),
